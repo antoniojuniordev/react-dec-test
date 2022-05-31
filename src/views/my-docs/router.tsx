@@ -3,11 +3,12 @@ import { lazy, Suspense } from 'react';
 import { DashboardLayout } from 'layouts/Dashboard';
 import NoAuth from 'routes/guards/NoAuth';
 
-const ListDoc = lazy(() => import('./pages/listDoc'));
+const ListDoc = lazy(() => import('./pages/list'));
+const CreateDoc = lazy(() => import('./pages/createDoc'));
 
 export default [
   {
-    path: '/list-my-doc',
+    path: '/my-docs',
     element: <NoAuth component={DashboardLayout} />,
     children: [
       {
@@ -15,6 +16,14 @@ export default [
         element: (
           <Suspense fallback={<>...</>}>
             <ListDoc />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'new',
+        element: (
+          <Suspense fallback={<>...</>}>
+            <CreateDoc />
           </Suspense>
         ),
       },
