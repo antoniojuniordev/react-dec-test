@@ -1,5 +1,4 @@
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
 import { usePromiseTracker } from 'react-promise-tracker';
 
 interface Props {
@@ -11,11 +10,11 @@ interface Props {
 function TableBase(props: Props) {
   const { promiseInProgress } = usePromiseTracker({ area: props.id });
   const generalProgress = usePromiseTracker();
-
   return (
     <Table
       columns={props.columns}
       dataSource={props.dataSource}
+      rowKey='id'
       loading={
         promiseInProgress || (generalProgress.promiseInProgress && !props.id)
       }

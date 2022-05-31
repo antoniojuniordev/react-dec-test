@@ -16,12 +16,34 @@ async function refreshToken() {
   }
 }
 
+function serializeObjectToParams(obj: object) {
+  return Object.keys(obj).reduce((acc, key) => {
+    if (acc) return `${acc}&${key}=${obj[key as keyof typeof obj]}`;
+    return `${key}=${obj[key as keyof typeof obj]}`;
+  }, '');
+}
+
 export default {
   async get(url: string, reference = '') {
     try {
       await refreshToken();
       const resp = await interceptPromise(http.get(url), reference);
       return resp;
+    } catch (err) {
+      dispatchError((err as PropsResponseError).response);
+      return false;
+    }
+  },
+  async getWithFilter(url: string, query: object, reference = '') {
+    try {
+      const page = query['currentPage' as keyof typeof query] || 1;
+      const limit = query['limit' as keyof typeof query] || 10;
+
+      const params = serializeObjectToParams({ ...query, limit, page });
+      const response = (await this.get(`${url}?${params}`, reference)) as {
+        data: object;
+      };
+      return response.data;
     } catch (err) {
       dispatchError((err as PropsResponseError).response);
       return false;

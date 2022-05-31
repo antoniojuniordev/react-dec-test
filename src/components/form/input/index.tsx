@@ -1,7 +1,7 @@
 import { Form, Input as InputAnt, InputProps } from 'antd';
 
 interface Props {
-  error: string;
+  error: string | boolean | undefined;
   label: string;
 }
 

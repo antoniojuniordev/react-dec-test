@@ -66,8 +66,8 @@ export function SideBar(props: Props) {
             <span>Início</span>
           </Link>
         </Menu.Item>
-        <Menu.Item key='/list-my-doc' icon={<CopyOutlined />}>
-          <Link to='/list-my-doc'>
+        <Menu.Item key='/my-docs' icon={<CopyOutlined />}>
+          <Link to='/my-docs'>
             <span>Meus Documentos</span>
           </Link>
         </Menu.Item>

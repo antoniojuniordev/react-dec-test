@@ -1,3 +1,5 @@
+import MYDOCS from 'views/my-docs/i18n/pt-br';
+
 export default {
   translations: {
     error500: 'Estamos passando por instabilidade, por favor tente novamente!',
@@ -7,8 +9,6 @@ export default {
     successMsg: 'Operação realizada com sucesso',
     alert: 'Alert',
     alertMsg: 'Operação teve um alerta',
-    home: {
-      message: 'Olá Mundo!',
-    },
+    ...MYDOCS,
   },
 };
