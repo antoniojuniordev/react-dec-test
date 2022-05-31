@@ -7,7 +7,7 @@ export default {
     error403: 'Permissão negada',
     success: 'Sucesso',
     successMsg: 'Operação realizada com sucesso',
-    alert: 'Alert',
+    alert: 'Alerta',
     alertMsg: 'Operação teve um alerta',
     ...MYDOCS,
   },
