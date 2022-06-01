@@ -21,7 +21,7 @@ import useDebounce from 'hooks/userDebounce';
 export default function MyDoc() {
   const [fileList, setFileList] = useState<any[]>([]);
   const [docs, setDocs] = useState<Doc>();
-  const [value, setValue] = useState<string>(' ');
+  const [value, setValue] = useState<string>('  ');
   const debouncedValue = useDebounce<string>(value, 500);
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export default function MyDoc() {
       description: '',
     },
     validationSchema: yup.object().shape({
-      name: yup.string().required(t('Title needs to be filled')),
+      name: yup.string().required(t('Name needs to be filled')),
       title: yup.string().required(t('Title needs to be filled')),
       description: yup.string(),
     }),
@@ -58,11 +58,11 @@ export default function MyDoc() {
   }, []);
 
   async function loadingDocs() {
-    const response = await serviceDoc.getDocs({ name: value }, 'get-docs');
+    const response = await serviceDoc.getDocs({ title: value }, 'get-docs');
     if (response && response.data.length > 0) {
       Notify({
         title: t('alert'),
-        message: t('Invalid file type'),
+        message: t('Title is already registered'),
         type: 'error',
       });
     }
@@ -136,7 +136,7 @@ export default function MyDoc() {
               placeholder={t('File name')}
               maxLength={100}
               value={formik.values.name}
-              onChange={handleChange}
+              onChange={formik.handleChange}
               error={formik.touched.name && formik.errors.name}
             ></Input>
           </Col>
@@ -147,7 +147,7 @@ export default function MyDoc() {
               placeholder={t('Title')}
               maxLength={100}
               value={formik.values.title}
-              onChange={formik.handleChange}
+              onChange={handleChange}
               error={formik.touched.title && formik.errors.title}
             ></Input>
           </Col>
