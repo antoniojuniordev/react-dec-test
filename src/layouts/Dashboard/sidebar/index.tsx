@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import { Col, Layout, Menu, Modal, Row } from 'antd';
 import {
   HomeOutlined,
   InfoCircleOutlined,
@@ -9,6 +9,7 @@ import {
 import logo from 'assets/images/logo.png';
 
 import '../style.css';
+import { useTranslation } from 'react-i18next';
 
 interface MenuInfo {
   key: string;
@@ -22,7 +23,13 @@ interface Props {
 
 export function SideBar(props: Props) {
   const location = useLocation();
+  const { t } = useTranslation();
   const [pathname, setPathname] = useState('/dashboard');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   useEffect(() => {
     setPathname(location.pathname);
@@ -63,20 +70,41 @@ export function SideBar(props: Props) {
       >
         <Menu.Item key='/dashboard' icon={<HomeOutlined />}>
           <Link to='/dashboard'>
-            <span>Início</span>
+            <span>{t('Home')}</span>
           </Link>
         </Menu.Item>
         <Menu.Item key='/my-docs' icon={<CopyOutlined />}>
           <Link to='/my-docs'>
-            <span>Meus Documentos</span>
+            <span>{t('My Documents')}</span>
           </Link>
         </Menu.Item>
-        <Menu.Item key='/infor' icon={<InfoCircleOutlined />}>
-          <Link to='/infor'>
-            <span>Sobre</span>
-          </Link>
+        <Menu.Item
+          key='/infor'
+          icon={<InfoCircleOutlined />}
+          onClick={() => setIsModalVisible(true)}
+        >
+          <span>{t('About')}</span>
         </Menu.Item>
       </Menu>
+      <Modal
+        title={t('About our company')}
+        visible={isModalVisible}
+        onOk={handleCancel}
+        onCancel={handleCancel}
+      >
+        <Row justify='center' gutter={[0, 12]}>
+          <img src={logo} alt='Logo' height='70' />
+          <Col span={24}>
+            <h4>Doc LTC</h4>
+            <p>
+              {t('We work with blockchain for versioning all your documents.')}
+            </p>
+            <p>CEP: 02910-040</p>
+            <p>Endereço: Rua Jorge Saraiva N: 935</p>
+            <p>Bairro: Freguesia do Ó Cidade: São Paulo</p>
+          </Col>
+        </Row>
+      </Modal>
     </Layout.Sider>
   );
 }
