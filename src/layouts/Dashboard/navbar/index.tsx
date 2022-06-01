@@ -31,12 +31,11 @@ export function NavBar(props: Props) {
   return (
     <Layout.Header className='site-layout-background'>
       <div>
-        {props.isMobile &&
-          (props.collapsed ? (
-            <MenuUnfoldOutlined className='trigger' onClick={props.toggle} />
-          ) : (
-            <MenuFoldOutlined className='trigger' onClick={props.toggle} />
-          ))}
+        {props.collapsed ? (
+          <MenuUnfoldOutlined className='trigger' onClick={props.toggle} />
+        ) : (
+          <MenuFoldOutlined className='trigger' onClick={props.toggle} />
+        )}
       </div>
 
       <div className='content-nav'>

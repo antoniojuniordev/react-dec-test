@@ -47,6 +47,11 @@
   box-shadow: 0px 5px 14px 2px rgb(3 3 3 / 10%);
 }
 
+.sidebar-mobile {
+  position: fixed; 
+  z-index: 99;
+}
+
 .menu-sidebar-fixed {
   position: fixed;
 }

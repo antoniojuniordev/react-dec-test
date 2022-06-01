@@ -5,6 +5,8 @@ import {
   HomeOutlined,
   InfoCircleOutlined,
   CopyOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
 } from '@ant-design/icons';
 import logo from 'assets/images/logo.png';
 
@@ -39,9 +41,17 @@ export function SideBar(props: Props) {
     setPathname(event.key);
   }
 
+  function changeToggle() {
+    if (!props.isMobile && !props.collapsed) {
+      props.toggle();
+    }
+  }
+
   return (
     <Layout.Sider
-      className='menu-sidebar'
+      className={
+        props.isMobile ? 'menu-sidebar' : 'menu-sidebar sidebar-mobile'
+      }
       collapsible
       collapsed={props.collapsed}
       onCollapse={props.toggle}
@@ -51,6 +61,7 @@ export function SideBar(props: Props) {
       onBreakpoint={(broken: boolean) => {
         props.setMobile(!broken);
       }}
+      trigger={null}
       collapsedWidth={props.isMobile ? '80' : '0'}
     >
       <div className='sidebar-logo'>
@@ -60,6 +71,9 @@ export function SideBar(props: Props) {
             Doc<strong className='text-red'>Spider</strong>
           </h3>
         )}
+        {!props.isMobile && (
+          <MenuFoldOutlined className='trigger ml-4' onClick={props.toggle} />
+        )}
       </div>
       <Menu
         theme='light'
@@ -68,12 +82,20 @@ export function SideBar(props: Props) {
         defaultOpenKeys={[pathname]}
         onClick={selectRouter}
       >
-        <Menu.Item key='/dashboard' icon={<HomeOutlined />}>
+        <Menu.Item
+          key='/dashboard'
+          icon={<HomeOutlined />}
+          onClick={changeToggle}
+        >
           <Link to='/dashboard'>
             <span>{t('Home')}</span>
           </Link>
         </Menu.Item>
-        <Menu.Item key='/my-docs' icon={<CopyOutlined />}>
+        <Menu.Item
+          key='/my-docs'
+          icon={<CopyOutlined />}
+          onClick={changeToggle}
+        >
           <Link to='/my-docs'>
             <span>{t('My Documents')}</span>
           </Link>
