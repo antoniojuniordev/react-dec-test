@@ -8,6 +8,8 @@ export default {
   Edit: 'Editar',
   Delete: 'Deletar',
   View: 'Ver',
+  items: 'itens',
+  'Created at': 'Criado em',
   'New Document': 'Novo Documento',
   'Update Document': 'Atualizar documento',
   'Invalid file type': 'Tipo de arquivo inválido',

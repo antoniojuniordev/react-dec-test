@@ -4,7 +4,7 @@ import { Doc, Docs, DocsDetail } from '../model/docs';
 
 interface PropsPaginationOptions {
   count: number;
-  pages: number;
+  page: number;
   current_page: number;
   limit?: number;
 }
