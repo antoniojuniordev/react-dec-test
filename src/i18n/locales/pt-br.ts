@@ -1,5 +1,6 @@
 import MYDOCS from 'views/my-docs/i18n/pt-br';
 import DASHBOARD from 'layouts/Dashboard/i18n/pt-br';
+import PAGEDASHBOARD from 'views/dashboard/i18n/pt-br';
 
 export default {
   translations: {
@@ -12,5 +13,6 @@ export default {
     alertMsg: 'Operação teve um alerta',
     ...MYDOCS,
     ...DASHBOARD,
+    ...PAGEDASHBOARD,
   },
 };
