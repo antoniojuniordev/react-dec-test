@@ -5,10 +5,9 @@ import {
   HomeOutlined,
   InfoCircleOutlined,
   CopyOutlined,
-  MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons';
-import logo from 'assets/images/logo.png';
+import logo from 'core/assets/images/logo.png';
 
 import '../style.css';
 import { useTranslation } from 'react-i18next';

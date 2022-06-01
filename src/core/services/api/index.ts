@@ -1,4 +1,4 @@
-import notification from 'services/notification';
+import notification from 'core/services/notification';
 
 import { interceptPromise } from './handlerPromise';
 import { dispatchError, PropsResponseError } from './handlerError';

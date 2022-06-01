@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 
-import { DashboardLayout } from 'layouts/Dashboard';
-import NoAuth from 'routes/guards/NoAuth';
+import { DashboardLayout } from 'core/layouts/Dashboard';
+import NoAuth from 'core/routes/guards/NoAuth';
 
 const ListDoc = lazy(() => import('./pages/list'));
 const MyDoc = lazy(() => import('./pages/myDoc'));

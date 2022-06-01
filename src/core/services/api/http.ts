@@ -1,5 +1,5 @@
 import Axios, { AxiosRequestConfig } from 'axios';
-import { destroySession, getSession } from 'services/storage';
+import { destroySession, getSession } from 'core/services/storage';
 
 const http = Axios.create({
   baseURL: process.env.REACT_APP_URL,

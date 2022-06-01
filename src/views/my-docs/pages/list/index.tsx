@@ -5,12 +5,12 @@ import { Card, Col, Row, Space, Table } from 'antd';
 import Pagination from 'antd/es/pagination';
 import { ColumnsType } from 'antd/lib/table';
 
-import Button from 'components/button';
-import useDebounce from 'hooks/userDebounce';
-import { downloadDoc } from 'utils/functions/downloadFile';
+import Button from 'core/components/button';
+import useDebounce from 'core/hooks/userDebounce';
+import { downloadDoc } from 'core/utils/functions/downloadFile';
 import { Doc } from 'views/my-docs/model/docs';
 import { serviceDoc } from 'views/my-docs/services';
-import Input from 'components/form/input';
+import Input from 'core/components/form/input';
 import { Order } from 'views/my-docs/services/serviceDoc';
 import { stringify } from 'querystring';
 

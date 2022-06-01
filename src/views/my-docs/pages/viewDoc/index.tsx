@@ -1,10 +1,10 @@
 import { Col, Row } from 'antd';
-import Button from 'components/button';
-import Card from 'components/card';
+import Button from 'core/components/button';
+import Card from 'core/components/card';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import { downloadDoc } from 'utils/functions/downloadFile';
+import { downloadDoc } from 'core/utils/functions/downloadFile';
 import { Doc } from 'views/my-docs/model/docs';
 import { serviceDoc } from 'views/my-docs/services';
 

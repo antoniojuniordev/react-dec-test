@@ -6,17 +6,17 @@ import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd/es/upload/interface';
 import { Col, Row, Upload } from 'antd';
 
-import Button from 'components/button';
-import Input from 'components/form/input';
-import TextArea from 'components/form/textarea';
-import yup from 'services/validates/yup';
+import Button from 'core/components/button';
+import Input from 'core/components/form/input';
+import TextArea from 'core/components/form/textarea';
+import yup from 'core/services/validates/yup';
 
 import { Doc } from 'views/my-docs/model/docs';
 import { serviceDoc } from 'views/my-docs/services';
-import Notify from 'services/notification/notification';
-import { downloadDoc } from 'utils/functions/downloadFile';
-import Card from 'components/card';
-import useDebounce from 'hooks/userDebounce';
+import Notify from 'core/services/notification/notification';
+import { downloadDoc } from 'core/utils/functions/downloadFile';
+import Card from 'core/components/card';
+import useDebounce from 'core/hooks/userDebounce';
 
 export default function MyDoc() {
   const [fileList, setFileList] = useState<any[]>([]);

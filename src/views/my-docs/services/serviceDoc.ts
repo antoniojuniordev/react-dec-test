@@ -1,5 +1,5 @@
 import { t } from 'i18next';
-import services from 'services/api';
+import services from 'core/services/api';
 import { Doc, Docs, DocsDetail } from '../model/docs';
 
 export interface Order {

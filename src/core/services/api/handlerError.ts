@@ -1,7 +1,7 @@
-import i18n from 'i18n';
+import i18n from 'core/i18n';
 
-import responses from 'services/notification';
-import { destroySession } from 'services/storage';
+import responses from 'core/services/notification';
+import { destroySession } from 'core/services/storage';
 
 interface Message {
   message: string[];
