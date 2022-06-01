@@ -4,7 +4,8 @@ import { DashboardLayout } from 'layouts/Dashboard';
 import NoAuth from 'routes/guards/NoAuth';
 
 const ListDoc = lazy(() => import('./pages/list'));
-const CreateDoc = lazy(() => import('./pages/createDoc'));
+const MyDoc = lazy(() => import('./pages/myDoc'));
+const ViewDoc = lazy(() => import('./pages/viewDoc'));
 
 export default [
   {
@@ -23,7 +24,23 @@ export default [
         path: 'new',
         element: (
           <Suspense fallback={<>...</>}>
-            <CreateDoc />
+            <MyDoc />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'edit/:id',
+        element: (
+          <Suspense fallback={<>...</>}>
+            <MyDoc />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'view/:id',
+        element: (
+          <Suspense fallback={<>...</>}>
+            <ViewDoc />
           </Suspense>
         ),
       },

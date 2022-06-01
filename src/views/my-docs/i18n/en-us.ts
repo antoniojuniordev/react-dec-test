@@ -15,5 +15,7 @@ export default {
   'Document successfully updated': 'Document successfully updated',
   'Document successfully deleted': 'Document successfully deleted',
   'Title needs to be filled': 'Title needs to be filled',
+  'Name needs to be filled': 'Name needs to be filled',
+  'Title is already registered': 'Title is already registered',
   'Select a document': 'Selecione um documento',
 };
