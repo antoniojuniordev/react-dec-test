@@ -36,7 +36,7 @@ export default {
   },
   async getWithFilter(url: string, query: object, reference = '') {
     try {
-      const page = query['currentPage' as keyof typeof query] || 1;
+      const page = query['page' as keyof typeof query] || 1;
       const limit = query['limit' as keyof typeof query] || 10;
 
       const params = serializeObjectToParams({ ...query, limit, page });

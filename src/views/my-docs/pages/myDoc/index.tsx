@@ -110,6 +110,7 @@ export default function MyDoc() {
       if (
         file.type !== '' &&
         file.type !== 'application/zip' &&
+        file.type !== 'application/octet-stream' &&
         file.type !== 'application/x-msdownload'
       ) {
         setFileList([file]);

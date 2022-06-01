@@ -21,6 +21,7 @@ export default {
     reference: string
   ): Promise<Docs | false> {
     try {
+      console.log(params);
       const response = await services.getWithFilter('docs', params, reference);
       return response as unknown as Docs;
     } catch (error) {

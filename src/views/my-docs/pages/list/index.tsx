@@ -25,10 +25,10 @@ export default function ListDoc() {
   const [loading, setLoading] = useState<boolean>(false);
   const debouncedValue = useDebounce<string>(value, 500);
 
-  async function loadingDocs() {
+  async function loadingDocs(pageNumber?: number) {
     setLoading(true);
     const response = await serviceDoc.getDocs(
-      { page, name: value, order },
+      { page: pageNumber ? pageNumber : page, name: value, order },
       'get-docs'
     );
     if (response) {
@@ -120,7 +120,7 @@ export default function ListDoc() {
 
   function handleChangeTable(event: number) {
     setPage(event);
-    loadingDocs();
+    loadingDocs(event);
   }
 
   const onChange: any['onChange'] = (
@@ -162,7 +162,7 @@ export default function ListDoc() {
             tableLayout='auto'
             showSorterTooltip
             loading={loading}
-            scroll={{ y: 540 }}
+            scroll={{ y: 340 }}
             onChange={onChange}
           />
           <Row justify='end' className='mt-2'>
