@@ -9,6 +9,7 @@ export default {
   Delete: 'Delete',
   View: 'View',
   items: 'items',
+  'Search by file name': 'Search by file name',
   'New Document': 'New Document',
   'Created at': 'Created at',
   'Update Document': 'Update Document',

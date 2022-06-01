@@ -134,7 +134,7 @@ export default function MyDoc() {
               name='name'
               label={t('File name')}
               placeholder={t('File name')}
-              maxLength={100}
+              maxLength={255}
               value={formik.values.name}
               onChange={formik.handleChange}
               error={formik.touched.name && formik.errors.name}

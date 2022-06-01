@@ -10,6 +10,7 @@ export default {
   View: 'Ver',
   items: 'itens',
   'Created at': 'Criado em',
+  'Search by file name': 'Pesquisar por nome do arquivo',
   'New Document': 'Novo Documento',
   'Update Document': 'Atualizar documento',
   'Invalid file type': 'Tipo de arquivo inválido',

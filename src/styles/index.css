@@ -42,6 +42,10 @@ code {
   height: 100vh;
 }
 
+.mb-2 {
+  margin-bottom: 20px;
+}
+
 .mt-1 {
   margin-top: 10px;
 }

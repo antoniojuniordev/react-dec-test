@@ -2,11 +2,17 @@ import { t } from 'i18next';
 import services from 'services/api';
 import { Doc, Docs, DocsDetail } from '../model/docs';
 
+export interface Order {
+  field: string;
+  order: string;
+}
+
 interface PropsPaginationOptions {
   count: number;
   page: number;
   current_page: number;
   limit?: number;
+  order?: Order[];
 }
 
 export default {
